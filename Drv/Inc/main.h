@@ -378,6 +378,28 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
+#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
+#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
+#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
+
+#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
+#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
+#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
+#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
+#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
 
 /* USER CODE END EM */
 

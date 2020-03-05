@@ -19,10 +19,12 @@ drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_e
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 drv\system_stm32f1xx.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

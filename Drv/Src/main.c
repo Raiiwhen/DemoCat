@@ -43,6 +43,10 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+CAN_HandleTypeDef hcan;
+
+SPI_HandleTypeDef hspi2;
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -67,6 +71,8 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_CAN_Init(void);
+static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -117,6 +123,8 @@ int main(void)
   MX_TIM4_Init();
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
+  MX_CAN_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 	LED_R = 1;
 	LED_G = 0;
@@ -187,6 +195,81 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief CAN Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_CAN_Init(void)
+{
+
+  /* USER CODE BEGIN CAN_Init 0 */
+
+  /* USER CODE END CAN_Init 0 */
+
+  /* USER CODE BEGIN CAN_Init 1 */
+
+  /* USER CODE END CAN_Init 1 */
+  hcan.Instance = CAN1;
+  hcan.Init.Prescaler = 16;
+  hcan.Init.Mode = CAN_MODE_NORMAL;
+  hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+  hcan.Init.TimeSeg1 = CAN_BS1_1TQ;
+  hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
+  hcan.Init.TimeTriggeredMode = DISABLE;
+  hcan.Init.AutoBusOff = DISABLE;
+  hcan.Init.AutoWakeUp = DISABLE;
+  hcan.Init.AutoRetransmission = DISABLE;
+  hcan.Init.ReceiveFifoLocked = DISABLE;
+  hcan.Init.TransmitFifoPriority = DISABLE;
+  if (HAL_CAN_Init(&hcan) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN CAN_Init 2 */
+
+  /* USER CODE END CAN_Init 2 */
+
+}
+
+/**
+  * @brief SPI2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI2_Init(void)
+{
+
+  /* USER CODE BEGIN SPI2_Init 0 */
+
+  /* USER CODE END SPI2_Init 0 */
+
+  /* USER CODE BEGIN SPI2_Init 1 */
+
+  /* USER CODE END SPI2_Init 1 */
+  /* SPI2 parameter configuration*/
+  hspi2.Instance = SPI2;
+  hspi2.Init.Mode = SPI_MODE_SLAVE;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi2.Init.CRCPolynomial = 10;
+  if (HAL_SPI_Init(&hspi2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI2_Init 2 */
+
+  /* USER CODE END SPI2_Init 2 */
+
 }
 
 /**
@@ -521,6 +604,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PC13 PC14 */
@@ -530,11 +616,24 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PA4 PA5 PA6 PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PB0 PB1 PB2 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
