@@ -6,8 +6,12 @@
 
 #define sw_D (get_sbus(5)>1000 ? 1 :0 )
 #define sw_E (get_sbus(6)>1000 ? 1 :0 )
-#define sw_F (get_sbus(7)>1000 ? 1 :0 )
-#define sw_H (get_sbus(6)>1000 ? 1 :0 )
+#define vr_C  get_sbus(7)
+#define vr_D  get_sbus(8)
+#define sw_F (get_sbus(9)>1000 ? 1 :0 )
+#define sw_G (get_sbus(10)>1000 ? 1 :0 )
+
+#define M_Per_ROUND 188.4e-3
 
 float ml_cnt, mr_cnt; //mr on tim4; ml on tmi3
 float ml_vel, mr_vel; //dps
@@ -60,8 +64,8 @@ void ctrl_init(void){
 
 void ctrl_exe(void){
 	/*get remote */
-	dir = ((float)get_sbus(1)/2000.0f * 2.0f -1.0f) * (get_sbus(7)/1000.0f);
-	vel = ((float)get_sbus(2)/2000.0f * 2.0f -1.0f) * (get_sbus(8)/1000.0f);
+	dir = ((float)get_sbus(1)/2000.0f * 2.0f -1.0f) * (vr_C/1000.0f);
+	vel = ((float)get_sbus(2)/2000.0f * 2.0f -1.0f) * (vr_D/1000.0f);
 	float pit = (float)get_sbus(3)/2000.0f;
 	float yaw = (float)get_sbus(4)/2000.0f * 2.0f - 1.0f;
 	
@@ -81,23 +85,24 @@ void ctrl_exe(void){
 	ctrl_motor(vel-dir, vel+dir);
 	ctrl_deck(yaw*180,pit*90);
 	
-	Spk_EN = sw_H;
+	Spk_EN = sw_F;
 }
 
+float get_mr_cnt(void){
+	float cnt = 0;
+	cnt = mr_cnt + ((short)TIM3->CNT-122)/243.0*M_Per_ROUND;
+	return cnt;
+}
 
 void encoder3_update(void){
 	LED_B = !LED_B;
 	if(TIM3->CR1 & 0x10)
-		mr_cnt+=5;
+		mr_cnt+=M_Per_ROUND;
 	else
-		mr_cnt-=5;
+		mr_cnt-=M_Per_ROUND;
 }
 
 void encoder4_update(void){
-	float tmp = TIM4->CCR1;
-	if(tmp>121)
-		ml_cnt+=5;
-	else
-		ml_cnt-=5;
+	
 }
 

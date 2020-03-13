@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=5v Pin=IO-1
+Removed Pin From Net: NetName=5v Pin=IO-2
+Removed Pin From Net: NetName=5v Pin=IO-3
+Removed Pin From Net: NetName=3v3 Pin=IO-4
+Removed Pin From Net: NetName=3v3 Pin=IO-5
+Removed Pin From Net: NetName=3v3 Pin=IO-6
+Added Pin To Net: NetName=3v3 Pin=IO-1
+Added Pin To Net: NetName=3v3 Pin=IO-2
+Added Pin To Net: NetName=3v3 Pin=IO-3
+Added Pin To Net: NetName=5v Pin=IO-4
+Added Pin To Net: NetName=5v Pin=IO-5
+Added Pin To Net: NetName=5v Pin=IO-6

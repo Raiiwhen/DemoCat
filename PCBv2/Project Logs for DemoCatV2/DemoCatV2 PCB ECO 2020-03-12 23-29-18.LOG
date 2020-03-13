@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=M1_P Pin=Q1-2
+Removed Pin From Net: NetName=M1_P Pin=R4-2
+Removed Pin From Net: NetName=SBUS Pin=RXer-4
+Removed Pin From Net: NetName=Drv_EN Pin=U1-2
+Removed Pin From Net: NetName=M1_P Pin=U1-16
+Added Pin To Net: NetName=Drv_EN Pin=U1-16
+Added Pin To Net: NetName=PC13 Pin=Q1-2
+Added Pin To Net: NetName=PC13 Pin=R4-2
+Added Pin To Net: NetName=PC13 Pin=U1-2
+Added Net: Name=PC13
+Added Pin To Net: NetName=U2TX Pin=RXer-4
+Added Pin To Net: NetName=U2TX Pin=U1-12
+Added Net: Name=U2TX
+Added Member To Class: ClassName=DemoCatV2 Member=Component Y1 8Mhz

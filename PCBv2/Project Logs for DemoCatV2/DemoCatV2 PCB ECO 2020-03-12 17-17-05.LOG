@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetD4_2 Pin=P?-7
+Removed Pin From Net: NetName=NetD4_2 Pin=P?-8
+Change Component Designator: OldDesignator=P? NewDesignator=P2
+Change Component Designator: OldDesignator=R28 NewDesignator=R27
+Change Component Designator: OldDesignator=R29 NewDesignator=R28
+Change Component Designator: OldDesignator=R31 NewDesignator=R29
+Change Component Designator: OldDesignator=R32 NewDesignator=R30
+Change Component Designator: OldDesignator=R33 NewDesignator=R31
+Change Component Designator: OldDesignator=R34 NewDesignator=R32
+Change Component Designator: OldDesignator=R35 NewDesignator=R33
+Added Pin To Net: NetName=9v Pin=Camera-3
+Added Pin To Net: NetName=Drv_BAT Pin=P2-7
+Added Pin To Net: NetName=Drv_BAT Pin=P2-8
+Change Net Name : Old Net Name=NetR34_2 New Net Name=NetR32_2

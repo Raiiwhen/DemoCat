@@ -1,0 +1,74 @@
+Added Component: Designator=IC1(VNH5019A-E_1)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://docs-emea.rs-online.com/webdocs/140d/0900766b8140dac2.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "511-VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=511-VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8805550P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8805550P"; VariantName = "[No Variations]"
+Added Component: Designator=IC2(VNH5019A-E_1)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://docs-emea.rs-online.com/webdocs/140d/0900766b8140dac2.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "511-VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=511-VNH5019A-E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8805550P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8805550P"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=MH1 Pin=IC1-1
+Added Pin To Net: NetName=Drv_Vcc Pin=IC1-3
+Added Pin To Net: NetName=NetIC1_4 Pin=IC1-4
+Added Pin To Net: NetName=NetIC1_5 Pin=IC1-5
+Added Pin To Net: NetName=NetIC1_6 Pin=IC1-6
+Added Pin To Net: NetName=NetIC1_7 Pin=IC1-7
+Added Pin To Net: NetName=NetIC1_6 Pin=IC1-8
+Added Pin To Net: NetName=NetIC1_9 Pin=IC1-9
+Added Pin To Net: NetName=NetIC1_10 Pin=IC1-10
+Added Pin To Net: NetName=Drv_CP Pin=IC1-11
+Added Pin To Net: NetName=Drv_BAT Pin=IC1-12
+Added Pin To Net: NetName=Drv_Vcc Pin=IC1-13
+Added Pin To Net: NetName=ML1 Pin=IC1-15
+Added Pin To Net: NetName=ML1 Pin=IC1-16
+Added Pin To Net: NetName=GND Pin=IC1-18
+Added Pin To Net: NetName=GND Pin=IC1-19
+Added Pin To Net: NetName=GND Pin=IC1-20
+Added Pin To Net: NetName=ML1 Pin=IC1-21
+Added Pin To Net: NetName=Drv_Vcc Pin=IC1-23
+Added Pin To Net: NetName=MH1 Pin=IC1-25
+Added Pin To Net: NetName=GND Pin=IC1-26
+Added Pin To Net: NetName=GND Pin=IC1-27
+Added Pin To Net: NetName=GND Pin=IC1-28
+Added Pin To Net: NetName=MH1 Pin=IC1-30
+Added Pin To Net: NetName=Drv_Vcc Pin=IC1-31
+Added Pin To Net: NetName=MH1 Pin=IC1-32
+Added Pin To Net: NetName=ML1 Pin=IC1-33
+Added Pin To Net: NetName=MH2 Pin=IC2-1
+Added Pin To Net: NetName=Drv_Vcc Pin=IC2-3
+Added Pin To Net: NetName=NetIC2_4 Pin=IC2-4
+Added Pin To Net: NetName=NetIC2_5 Pin=IC2-5
+Added Pin To Net: NetName=NetIC2_6 Pin=IC2-6
+Added Pin To Net: NetName=NetIC2_7 Pin=IC2-7
+Added Pin To Net: NetName=NetIC2_6 Pin=IC2-8
+Added Pin To Net: NetName=NetIC2_9 Pin=IC2-9
+Added Pin To Net: NetName=NetIC2_10 Pin=IC2-10
+Added Pin To Net: NetName=Drv_CP Pin=IC2-11
+Added Pin To Net: NetName=Drv_BAT Pin=IC2-12
+Added Pin To Net: NetName=Drv_Vcc Pin=IC2-13
+Added Pin To Net: NetName=ML2 Pin=IC2-15
+Added Pin To Net: NetName=ML2 Pin=IC2-16
+Added Pin To Net: NetName=GND Pin=IC2-18
+Added Pin To Net: NetName=GND Pin=IC2-19
+Added Pin To Net: NetName=GND Pin=IC2-20
+Added Pin To Net: NetName=ML2 Pin=IC2-21
+Added Pin To Net: NetName=Drv_Vcc Pin=IC2-23
+Added Pin To Net: NetName=MH2 Pin=IC2-25
+Added Pin To Net: NetName=GND Pin=IC2-26
+Added Pin To Net: NetName=GND Pin=IC2-27
+Added Pin To Net: NetName=GND Pin=IC2-28
+Added Pin To Net: NetName=MH2 Pin=IC2-30
+Added Pin To Net: NetName=Drv_Vcc Pin=IC2-31
+Added Pin To Net: NetName=MH2 Pin=IC2-32
+Added Pin To Net: NetName=ML2 Pin=IC2-33
+Added Member To Class: ClassName=DemoCatV2 Member=Component IC1 VNH5019A-E
+Added Member To Class: ClassName=DemoCatV2 Member=Component IC2 VNH5019A-E

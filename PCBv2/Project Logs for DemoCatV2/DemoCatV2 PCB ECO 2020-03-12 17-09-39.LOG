@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=5v Pin=P?-9
+Removed Pin From Net: NetName=GND Pin=P?-10
+Removed Pin From Net: NetName=9v Pin=P?-13
+Removed Pin From Net: NetName=GND Pin=P?-14
+Change Component Footprint: Designator=P? Old Footprint=HDR2X8_CEN New Footprint=HDR1X8
+Change Component Comment : Designator=P? Old Comment=Header 8X2A New Comment=Header 8
+Added Room: Name=DemoCatV2
