@@ -4,6 +4,8 @@
 "drv\ctrl.o"
 "drv\mat.o"
 "drv\mem_mgt.o"
+"drv\pid.o"
+"drv\slave_server.o"
 "drv\main.o"
 "drv\stm32f1xx_it.o"
 "drv\stm32f1xx_hal_msp.o"

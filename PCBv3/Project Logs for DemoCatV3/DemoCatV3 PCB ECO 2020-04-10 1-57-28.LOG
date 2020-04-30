@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=MH1 Pin=MotorDrv-7
+Removed Pin From Net: NetName=ML1 Pin=MotorDrv-8
+Added Pin To Net: NetName=ML1 Pin=MotorDrv-7
+Added Pin To Net: NetName=MH1 Pin=MotorDrv-8
+Added Member To Class: ClassName=DemoCatV3 Member=Component R16 Res2
+Added Member To Class: ClassName=DemoCatV3 Member=Component R18 Res2

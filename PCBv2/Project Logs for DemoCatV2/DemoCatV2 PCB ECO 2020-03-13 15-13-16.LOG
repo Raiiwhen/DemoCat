@@ -1,5 +1,0 @@
-Added Pin To Net: NetName=5v Pin=Motor1-2
-Added Pin To Net: NetName=GND Pin=Motor1-5
-Added Pin To Net: NetName=5v Pin=Motor3-2
-Added Pin To Net: NetName=GND Pin=Motor3-5
-Added Member To Class: ClassName=DemoCatV2 Member=Component R26 10K

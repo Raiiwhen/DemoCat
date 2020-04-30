@@ -48,15 +48,105 @@ extern "C" {
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 	/* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
+	
+/* USER CODE END EM */
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+	
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -74,11 +164,45 @@ void Error_Handler(void);
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
+/*LEDs*/
+#define LED_R BIT_ADDR(GPIOB_BASE+12,2)
 #define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+#define LED_B BIT_ADDR(GPIOB_BASE+12,0)
+#define Drv_EN BIT_ADDR(GPIOA_BASE+12,6)
+#define M1_P BIT_ADDR(GPIOB_BASE+12,9)
+#define M2_P BIT_ADDR(GPIOB_BASE+12,8)
+
+/*MOS PP*/
+#define SW1 BIT_ADDR(GPIOA_BASE+12,7)
+#define SW2 BIT_ADDR(GPIOB_BASE+12,8)
+#define SW3 BIT_ADDR(GPIOB_BASE+12,9)
+#define SW4 BIT_ADDR(GPIOC_BASE+12,13)
+#define SW5 BIT_ADDR(GPIOC_BASE+12,14)
+#define SW6 BIT_ADDR(GPIOC_BASE+12,15)
+
+/*Remoter*/
+#define sw_D (get_sbus(5)>998 ? 1 :0 )
+#define sw_E (get_sbus(6)>1000 ? 1 :0 )
+#define vr_C  get_sbus(7)
+#define vr_D  get_sbus(8)
+#define sw_F (get_sbus(9)>1000 ? 1 :0 )
+#define sw_H (get_sbus(10)>1000 ? 1 :0 )
+
+#define SPI_CS BIT_ADDR(GPIOC_BASE+8,15)
+/* USER CODE END EM */	
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -92,15 +216,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -114,15 +230,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -136,15 +244,8 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -158,15 +259,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -180,15 +273,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -202,15 +287,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -224,15 +301,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -246,15 +315,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -268,15 +329,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -290,15 +343,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -312,15 +357,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -334,15 +371,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -356,15 +385,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -378,15 +399,20 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -400,15 +426,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -422,15 +440,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -444,15 +454,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -466,15 +468,61 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define LED_R BIT_ADDR(GPIOB_BASE+12,0)
-#define LED_G BIT_ADDR(GPIOB_BASE+12,1)
-#define LED_B BIT_ADDR(GPIOB_BASE+12,2)
-#define Drv_EN BIT_ADDR(GPIOC_BASE+12,13)
-#define Spk_EN BIT_ADDR(GPIOC_BASE+12,14)
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+/* USER CODE BEGIN EFP */
+
+/* USER CODE END EFP */
+
+
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);

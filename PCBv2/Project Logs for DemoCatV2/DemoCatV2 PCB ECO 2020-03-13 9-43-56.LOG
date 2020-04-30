@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=T2C2 Pin=Deck1-1
-Removed Pin From Net: NetName=T2C1 Pin=Deck1-4
-Added Pin To Net: NetName=T2C1 Pin=Deck1-1
-Added Pin To Net: NetName=T2C2 Pin=Deck1-4

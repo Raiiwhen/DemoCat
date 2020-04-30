@@ -64,6 +64,8 @@ uint32_t cnt;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern DMA_HandleTypeDef hdma_adc1;
+extern SPI_HandleTypeDef hspi2;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
@@ -217,6 +219,20 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles DMA1 channel1 global interrupt.
+  */
+void DMA1_Channel1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+
+  /* USER CODE END DMA1_Channel1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc1);
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel1_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA1 channel2 global interrupt.
   */
 void DMA1_Channel2_IRQHandler(void)
@@ -251,12 +267,14 @@ void TIM1_UP_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_IRQn 0 */
 	static uint16_t TIM1_CNT;
-	if(TIM1_CNT++ == 36)
+	if(TIM1_CNT++ == 18000){
 		TIM1_CNT = 0;
-	else
+		ctrl_exe();
+	}
+	else{
 		return;
+	}
 	
-	ctrl_exe();	
   /* USER CODE END TIM1_UP_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_IRQn 1 */
@@ -271,7 +289,7 @@ void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
 	encoder3_update();
-	TIM3->SR = 0;
+	TIM3->CNT = 121;
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */
@@ -295,6 +313,20 @@ void TIM4_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles SPI2 global interrupt.
+  */
+void SPI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI2_IRQn 0 */
+
+  /* USER CODE END SPI2_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi2);
+  /* USER CODE BEGIN SPI2_IRQn 1 */
+
+  /* USER CODE END SPI2_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART2 global interrupt.
   */
 void USART2_IRQHandler(void)
@@ -305,14 +337,11 @@ void USART2_IRQHandler(void)
 	
 	res = USART2->DR;
 	RX.raw[RX.ptr++]  = res;	//start a frame
+
 	if(RX.ptr==25){
 		if(RX.raw[0] == 0x0F && RX.raw[22] == 0x80){//frame is aligned
-			LED_R=!LED_R;
+			LED_R<<=1;
 			RX.ptr = 0;
-			if(RX.raw[23] & 0x30){
-				LED_R = 0;
-				return;//receiver read missed
-			}
 			RX.ch[0] =  (int16_t)(RX.raw[2] & 0x07) 	<< 8 	| RX.raw[1];
 			RX.ch[1] =  (int16_t)(RX.raw[3] & 0x3f) 	<< 5 	| (RX.raw[2] >> 3);
 			RX.ch[2] =  (int16_t)(RX.raw[5] & 0x01) 	<< 10 | ((int16_t)RX.raw[4] << 2) | (RX.raw[3] >> 6);
@@ -329,6 +358,15 @@ void USART2_IRQHandler(void)
 			RX.ch[13] = (int16_t)(RX.raw[20] & 0x03) 	<< 9 	| ((int16_t)RX.raw[19] << 1) | (RX.raw[18] >> 7);
 			RX.ch[14] = (int16_t)(RX.raw[21] & 0x1F) 	<< 6 	| (RX.raw[20] >> 2);
 			RX.ch[15] = (int16_t)RX.raw[22] 					<< 3 	| (RX.raw[21] >> 5);
+			if(RX.raw[23]){
+				//remoter offline
+				LED_R = 0;
+				for(res=4; res<16; res++)RX.ch[res] = 999;
+				RX.ch[0] = 960;
+				RX.ch[1] = 980;
+				RX.ch[2] = 310;
+				RX.ch[3] = 980;
+			}
 		}else{//frame is not aligned, shift 1 byte
 			for(res=0; res<24; res++)RX.raw[res] = RX.raw[res+1];
 			RX.ptr = 24;
@@ -366,6 +404,21 @@ void USART3_IRQHandler(void)
 	__HAL_UART_ENABLE_IT(&huart3,UART_IT_ERR);
 	__HAL_UART_ENABLE_IT(&huart3,UART_IT_RXNE);
   /* USER CODE END USART3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[15:10] interrupts.
+  */
+void EXTI15_10_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+
+	LED_G = !LED_G;
+  /* USER CODE END EXTI15_10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
+  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+
+  /* USER CODE END EXTI15_10_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

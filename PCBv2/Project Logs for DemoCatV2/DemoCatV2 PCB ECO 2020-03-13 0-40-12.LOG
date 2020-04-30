@@ -1,4 +1,0 @@
-Change Component Footprint: Designator=Safe? Old Footprint=0603R New Footprint=FUSE-1210
-Change Component Designator: OldDesignator=Safe? NewDesignator=Safe
-Added Member To Class: ClassName=DemoCatV2 Member=Component R20 10K
-Added Member To Class: ClassName=DemoCatV2 Member=Component R21 10K

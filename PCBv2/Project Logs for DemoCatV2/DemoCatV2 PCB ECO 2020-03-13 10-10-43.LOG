@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=T4CH2 Pin=Motor2-3
-Removed Pin From Net: NetName=T4CH1 Pin=Motor2-4
-Added Pin To Net: NetName=T4CH1 Pin=Motor2-3
-Added Pin To Net: NetName=T4CH2 Pin=Motor2-4

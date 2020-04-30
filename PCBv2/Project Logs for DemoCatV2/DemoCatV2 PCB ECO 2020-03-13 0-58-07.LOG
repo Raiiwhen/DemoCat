@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=PB8 Pin=Q3-2
-Removed Pin From Net: NetName=PC14 Pin=Q7-2
-Removed Pin From Net: NetName=PB8 Pin=R6-2
-Removed Pin From Net: NetName=PC14 Pin=R15-2
-Added Pin To Net: NetName=PC14 Pin=Q3-2
-Added Pin To Net: NetName=PB8 Pin=Q7-2
-Added Pin To Net: NetName=PC14 Pin=R6-2
-Added Pin To Net: NetName=PB8 Pin=R15-2

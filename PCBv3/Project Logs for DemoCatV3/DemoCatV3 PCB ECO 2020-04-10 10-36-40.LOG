@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=Drv_BAT Pin=DCDC-9
+Removed Pin From Net: NetName=Drv_BAT Pin=DCDC-10
+Removed Pin From Net: NetName=9v Pin=DCDC-12
+Removed Pin From Net: NetName=5v Pin=DCDC-16
+Added Pin To Net: NetName=5v Pin=DCDC-12
+Added Pin To Net: NetName=Drv_BAT Pin=DCDC-13
+Added Pin To Net: NetName=Drv_BAT Pin=DCDC-14
+Added Pin To Net: NetName=9v Pin=DCDC-16
+Added Pin To Net: NetName=NetDCDC_9 Pin=DCDC-9
+Added Pin To Net: NetName=NetDCDC_9 Pin=DCDC-10
+Added Pin To Net: NetName=NetDCDC_9 Pin=Safe1-2
+Added Net: Name=NetDCDC_9

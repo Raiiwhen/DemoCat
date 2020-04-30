@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=SBUS Pin=RXer-1
+Removed Pin From Net: NetName=GND Pin=RXer-3
+Removed Pin From Net: NetName=U2TX Pin=RXer-4
+Removed Pin From Net: NetName=GND Pin=RXer-6
+Added Pin To Net: NetName=GND Pin=RXer-1
+Added Pin To Net: NetName=SBUS Pin=RXer-3
+Added Pin To Net: NetName=GND Pin=RXer-4
+Added Pin To Net: NetName=U2TX Pin=RXer-6
