@@ -26,6 +26,7 @@
 #include "stdio.h"
 #include "uart.h"
 #include "ctrl.h"
+#include "TJMst.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,12 +56,13 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
+DMA_HandleTypeDef hdma_usart2_rx;
 DMA_HandleTypeDef hdma_usart3_rx;
 DMA_HandleTypeDef hdma_usart3_tx;
 
 /* USER CODE BEGIN PV */
-
-extern uint32_t ADC_VAL[100];
+uint32_t ADC_VAL[100];
+extern SBUS_Pack RX;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -128,9 +130,13 @@ int main(void)
   MX_ADC1_Init();
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
-	__HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE);
-	__HAL_UART_ENABLE_IT(&huart3,UART_IT_RXNE);
+	HAL_UART_Receive_DMA(&huart2,RX.raw,25);
+	__HAL_UART_ENABLE_IT(&huart2,UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart3,RX_BUFF,DMA_SIZE);
+	__HAL_UART_ENABLE_IT(&huart3,UART_IT_IDLE);
+	__HAL_DMA_ENABLE_IT(&hdma_usart3_tx,DMA_IT_TC);
 	HAL_TIM_Base_Start_IT(&htim1);//main control IT, sys freq = 1KHz.
+	HAL_TIM_Base_Start_IT(&htim2);//deck or stepper control IT
 	HAL_TIM_Base_Start_IT(&htim3);//encoder update IT
 	HAL_TIM_Base_Start_IT(&htim4);//encoder update IT
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);//motor
@@ -158,7 +164,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		io_exe();
 		remoter_sum = 0;
 		remoter_sum += sw_D;
 		remoter_sum += sw_E;
@@ -166,17 +171,27 @@ int main(void)
 		remoter_sum += sw_H;
 		
 		if(remoter_sum != remoter_last_sum){
-			beep_en_cnt += 100;
+			beep_en_cnt += 10;
 		}
 		remoter_last_sum = remoter_sum;
 		if(beep_en_cnt>0){
 			beep_en_cnt--;
-			SW5 = 1;
+			Bep_EN = 1;
 		}else{
-			SW5 = 0;
+			if(12.6<BAT_Check() && BAT_Check()<14.8){
+				Bep_EN = 1;
+			}else if(6<BAT_Check() && BAT_Check()<11.1){
+				Bep_EN = 1;
+			}else{
+				Bep_EN = 0;
+			}
 		}
 		
-		
+		if(SW3){
+			if(TEMP_Check()<50.0f)SW3=0;
+		}else{
+			if(TEMP_Check()>53.0f || sw_F)SW3=1;
+		}
   }
   /* USER CODE END 3 */
 }
@@ -266,8 +281,9 @@ static void MX_ADC1_Init(void)
   }
   /** Configure Regular Channel 
   */
-  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
   sConfig.Rank = ADC_REGULAR_RANK_2;
+  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -629,6 +645,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel3_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  /* DMA1_Channel6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel6_IRQn);
 
 }
 

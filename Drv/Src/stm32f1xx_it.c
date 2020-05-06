@@ -27,15 +27,12 @@
 #include "stdio.h"
 #include "string.h"
 #include "ctrl.h"
+#include "TJMst.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 extern SBUS_Pack RX,buff;
-extern char RX_BUFF[30];
-extern uint8_t RX_CNT;
-extern uint8_t RX_FLAG;
-uint32_t cnt;
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -67,8 +64,10 @@ uint32_t cnt;
 extern DMA_HandleTypeDef hdma_adc1;
 extern SPI_HandleTypeDef hspi2;
 extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
+extern DMA_HandleTypeDef hdma_usart2_rx;
 extern DMA_HandleTypeDef hdma_usart3_rx;
 extern DMA_HandleTypeDef hdma_usart3_tx;
 extern UART_HandleTypeDef huart2;
@@ -238,7 +237,7 @@ void DMA1_Channel1_IRQHandler(void)
 void DMA1_Channel2_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel2_IRQn 0 */
-
+	//USART3 TX
   /* USER CODE END DMA1_Channel2_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart3_tx);
   /* USER CODE BEGIN DMA1_Channel2_IRQn 1 */
@@ -261,6 +260,20 @@ void DMA1_Channel3_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA1 channel6 global interrupt.
+  */
+void DMA1_Channel6_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel6_IRQn 0 */
+
+  /* USER CODE END DMA1_Channel6_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart2_rx);
+  /* USER CODE BEGIN DMA1_Channel6_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel6_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 update interrupt.
   */
 void TIM1_UP_IRQHandler(void)
@@ -280,6 +293,23 @@ void TIM1_UP_IRQHandler(void)
   /* USER CODE BEGIN TIM1_UP_IRQn 1 */
 
   /* USER CODE END TIM1_UP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM2 global interrupt.
+  */
+void TIM2_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM2_IRQn 0 */
+	
+//	TIM2->CCR1 = 0;
+//	TIM2->CCR2 = 0;
+
+  /* USER CODE END TIM2_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim2);
+  /* USER CODE BEGIN TIM2_IRQn 1 */
+
+  /* USER CODE END TIM2_IRQn 1 */
 }
 
 /**
@@ -333,50 +363,47 @@ void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
 	uint8_t res;
-	if((USART2->SR & 0x20) == 0)return;
-	
+	static uint8_t LED_PWM;
+	if((USART2->SR & UART_IT_IDLE) == 0)return;
+	res = USART2->SR;
 	res = USART2->DR;
-	RX.raw[RX.ptr++]  = res;	//start a frame
-
-	if(RX.ptr==25){
-		if(RX.raw[0] == 0x0F && RX.raw[22] == 0x80){//frame is aligned
-			LED_R<<=1;
-			RX.ptr = 0;
-			RX.ch[0] =  (int16_t)(RX.raw[2] & 0x07) 	<< 8 	| RX.raw[1];
-			RX.ch[1] =  (int16_t)(RX.raw[3] & 0x3f) 	<< 5 	| (RX.raw[2] >> 3);
-			RX.ch[2] =  (int16_t)(RX.raw[5] & 0x01) 	<< 10 | ((int16_t)RX.raw[4] << 2) | (RX.raw[3] >> 6);
-			RX.ch[3] =  (int16_t)(RX.raw[6] & 0x0F) 	<< 7 	| (RX.raw[5] >> 1);
-			RX.ch[4] =  (int16_t)(RX.raw[7] & 0x7F) 	<< 4 	| (RX.raw[6] >> 4);
-			RX.ch[5] =  (int16_t)(RX.raw[9] & 0x03) 	<< 9 	| ((int16_t)RX.raw[8] << 1) | (RX.raw[7] >> 7);
-			RX.ch[6] =  (int16_t)(RX.raw[10] & 0x1F) 	<< 6 	| (RX.raw[9] >> 2);
-			RX.ch[7] =  (int16_t)(RX.raw[11] 					<< 3) | (RX.raw[10] >> 5);
-			RX.ch[8] =  (int16_t)(RX.raw[13] & 0x07)	<< 8 	| RX.raw[12];
-			RX.ch[9] =  (int16_t)(RX.raw[14] & 0x3f) 	<< 5 	| (RX.raw[13] >> 3);
-			RX.ch[10] = (int16_t)(RX.raw[16] & 0x01) 	<< 10 | ((int16_t)RX.raw[15] << 2) | (RX.raw[14] >> 6);
-			RX.ch[11] = (int16_t)(RX.raw[17] & 0x0F) 	<< 7 	| (RX.raw[16] >> 1);
-			RX.ch[12] = (int16_t)(RX.raw[18] & 0x7F) 	<< 4 	| (RX.raw[17] >> 4);
-			RX.ch[13] = (int16_t)(RX.raw[20] & 0x03) 	<< 9 	| ((int16_t)RX.raw[19] << 1) | (RX.raw[18] >> 7);
-			RX.ch[14] = (int16_t)(RX.raw[21] & 0x1F) 	<< 6 	| (RX.raw[20] >> 2);
-			RX.ch[15] = (int16_t)RX.raw[22] 					<< 3 	| (RX.raw[21] >> 5);
-			if(RX.raw[23]){
-				//remoter offline
-				LED_R = 0;
-				for(res=4; res<16; res++)RX.ch[res] = 999;
-				RX.ch[0] = 960;
-				RX.ch[1] = 980;
-				RX.ch[2] = 310;
-				RX.ch[3] = 980;
-			}
-		}else{//frame is not aligned, shift 1 byte
-			for(res=0; res<24; res++)RX.raw[res] = RX.raw[res+1];
-			RX.ptr = 24;
+	HAL_UART_DMAStop(&huart2);
+	
+	if(RX.raw[0] == 0x0F && RX.raw[24] == 0x00){//frame is aligned
+		LED_R= ((LED_PWM+=8)>236?1:0);
+		RX.ch[0] =  (int16_t)(RX.raw[2] & 0x07) 	<< 8 	| RX.raw[1];
+		RX.ch[1] =  (int16_t)(RX.raw[3] & 0x3f) 	<< 5 	| (RX.raw[2] >> 3);
+		RX.ch[2] =  (int16_t)(RX.raw[5] & 0x01) 	<< 10 | ((int16_t)RX.raw[4] << 2) | (RX.raw[3] >> 6);
+		RX.ch[3] =  (int16_t)(RX.raw[6] & 0x0F) 	<< 7 	| (RX.raw[5] >> 1);
+		RX.ch[4] =  (int16_t)(RX.raw[7] & 0x7F) 	<< 4 	| (RX.raw[6] >> 4);
+		RX.ch[5] =  (int16_t)(RX.raw[9] & 0x03) 	<< 9 	| ((int16_t)RX.raw[8] << 1) | (RX.raw[7] >> 7);
+		RX.ch[6] =  (int16_t)(RX.raw[10] & 0x1F) 	<< 6 	| (RX.raw[9] >> 2);
+		RX.ch[7] =  (int16_t)(RX.raw[11] 					<< 3) | (RX.raw[10] >> 5);
+		RX.ch[8] =  (int16_t)(RX.raw[13] & 0x07)	<< 8 	| RX.raw[12];
+		RX.ch[9] =  (int16_t)(RX.raw[14] & 0x3f) 	<< 5 	| (RX.raw[13] >> 3);
+		RX.ch[10] = (int16_t)(RX.raw[16] & 0x01) 	<< 10 | ((int16_t)RX.raw[15] << 2) | (RX.raw[14] >> 6);
+		RX.ch[11] = (int16_t)(RX.raw[17] & 0x0F) 	<< 7 	| (RX.raw[16] >> 1);
+		RX.ch[12] = (int16_t)(RX.raw[18] & 0x7F) 	<< 4 	| (RX.raw[17] >> 4);
+		RX.ch[13] = (int16_t)(RX.raw[20] & 0x03) 	<< 9 	| ((int16_t)RX.raw[19] << 1) | (RX.raw[18] >> 7);
+		RX.ch[14] = (int16_t)(RX.raw[21] & 0x1F) 	<< 6 	| (RX.raw[20] >> 2);
+		RX.ch[15] = (int16_t)RX.raw[22] 					<< 3 	| (RX.raw[21] >> 5);
+		if(RX.raw[23]){
+			//remoter offline
+			LED_R = 0;
+			for(res=4; res<16; res++)RX.ch[res] = 999;
+			RX.ch[0] = 960;
+			RX.ch[1] = 980;
+			RX.ch[2] = 310;
+			RX.ch[3] = 980;
 		}
+	}else{
+		LED_R = 0;
 	}
+	HAL_UART_Receive_DMA(&huart2,RX.raw,25);
+	
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
-	__HAL_UART_ENABLE_IT(&huart2,UART_IT_ERR);
-	__HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE);
   /* USER CODE END USART2_IRQn 1 */
 }
 
@@ -388,21 +415,19 @@ void USART3_IRQHandler(void)
   /* USER CODE BEGIN USART3_IRQn 0 */
 	uint8_t temp;
 	
-	if(USART3->SR & 0x00000020){
+	if(USART3->SR & UART_IT_IDLE){
+	  temp = USART3->SR;
 		temp = USART3->DR;
-		RX_BUFF[RX_CNT++] = temp;		
-		if(temp==0x0d)RX_FLAG = 1;
-		if(RX_CNT==30){
-			RX_FLAG = 0;
-			RX_CNT = 0;
-			memset(RX_BUFF,0,30);
-		};
+		HAL_UART_DMAStop(&huart3);
+		
+		if(RX_BUFF[0]>31)
+			console_exe();
+		else
+			mst_execute();
 	}
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
-	__HAL_UART_ENABLE_IT(&huart3,UART_IT_ERR);
-	__HAL_UART_ENABLE_IT(&huart3,UART_IT_RXNE);
   /* USER CODE END USART3_IRQn 1 */
 }
 

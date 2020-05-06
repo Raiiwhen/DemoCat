@@ -33,3 +33,4 @@ drv\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 drv\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drv\main.o: ..\MDK-ARM\uart.h
 drv\main.o: ..\MDK-ARM\ctrl.h
+drv\main.o: ..\MDK-ARM\TJMst.h

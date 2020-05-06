@@ -35,3 +35,4 @@ drv\stm32f1xx_it.o: ..\MDK-ARM\uart.h
 drv\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drv\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drv\stm32f1xx_it.o: ..\MDK-ARM\ctrl.h
+drv\stm32f1xx_it.o: ..\MDK-ARM\TJMst.h

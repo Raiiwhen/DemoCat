@@ -33,3 +33,4 @@ drv\uart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 drv\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drv\uart.o: ../Inc/main.h
 drv\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drv\uart.o: TJMst.h
