@@ -34,3 +34,6 @@ drv\ctrl.o: ctrl.h
 drv\ctrl.o: ../Inc/main.h
 drv\ctrl.o: PID.h
 drv\ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+drv\ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+drv\ctrl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drv\ctrl.o: PS2.h

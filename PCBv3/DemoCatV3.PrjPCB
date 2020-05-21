@@ -208,40 +208,6 @@ GenerateClassCluster=0
 DocumentUniqueId=UWAQGXIP
 
 [Document11]
-DocumentPath=..\..\Documents\ADLib\TJ-Lib\Me.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=DVIAFMJW
-
-[Document12]
-DocumentPath=..\..\Documents\ADLib\TJ-Lib\Me.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=EOPETOSP
-
-[Document13]
 DocumentPath=..\PCB\DemoCat.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -258,7 +224,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EILMKDUU
 
-[Document14]
+[Document12]
 DocumentPath=..\..\Documents\ADLib\XTAL.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -275,7 +241,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document13]
 DocumentPath=..\..\Documents\ADLib\Safe.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -292,7 +258,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document14]
 DocumentPath=DemoCatV3.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -307,9 +273,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=VXEUKTAV
 
-[Document17]
+[Document15]
 DocumentPath=DemoCatV3.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -324,7 +290,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=GNFCMABJ
 
 [Configuration1]
 Name=Sources

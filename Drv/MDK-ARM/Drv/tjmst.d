@@ -31,4 +31,7 @@ drv\tjmst.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 drv\tjmst.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 drv\tjmst.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 drv\tjmst.o: ../Inc/main.h
+drv\tjmst.o: PID.h
+drv\tjmst.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+drv\tjmst.o: ctrl.h
 drv\tjmst.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

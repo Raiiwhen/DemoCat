@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;                                    ../Drivers/STM32F1xx_HAL_Driver/Inc;                                    ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;                                    ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;                                    ../Drivers/CMSIS/Include;                                    ..\MDK-ARM</IncludePath>
+              <IncludePath>../Inc;                                        ../Drivers/STM32F1xx_HAL_Driver/Inc;                                        ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;                                        ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;                                        ../Drivers/CMSIS/Include;                                        ..\MDK-ARM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -418,11 +418,6 @@
               <FilePath>.\PID.c</FilePath>
             </File>
             <File>
-              <FileName>PID.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\PID.h</FilePath>
-            </File>
-            <File>
               <FileName>slave_server.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\slave_server.c</FilePath>
@@ -431,6 +426,11 @@
               <FileName>TJMst.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\TJMst.c</FilePath>
+            </File>
+            <File>
+              <FileName>PS2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PS2.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
@@ -452,11 +452,6 @@
         <Group>
           <GroupName>Drivers/STM32F1xx_HAL_Driver</GroupName>
           <Files>
-            <File>
-              <FileName>stm32f1xx_hal_can.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c</FilePath>
-            </File>
             <File>
               <FileName>stm32f1xx_hal_gpio_ex.c</FileName>
               <FileType>1</FileType>

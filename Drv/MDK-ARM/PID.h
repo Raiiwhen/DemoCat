@@ -12,7 +12,9 @@ typedef struct{
 	float limit_max;
 }PID;
 
+void PID_RST(PID* obj);
 void PID_Init(PID* obj, float kP, float kI, float kD, float dt, float limit_max);
 float PID_exe(PID* obj, float exp, float real);
+
 
 #endif

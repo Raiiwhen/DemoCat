@@ -4,9 +4,9 @@
     <Project>
         <Configuration>
             <JLink>
-                <Options Connection="1" IsRTTSession="0" IsRTTWithTimeStamp="1" SamplingPeriod="100" SerialNo="0" JTAG_IRPre="-1" JTAG_DRPre="-1" IP="localhost" TargetDevice="STM32F405RG" TargetInterface="SWD" InterfaceSpeed="4000" />
+                <Options Connection="1" IsRTTSession="0" IsRTTWithTimeStamp="1" SamplingPeriod="100" SerialNo="0" JTAG_IRPre="-1" JTAG_DRPre="-1" IP="" TargetDevice="STM32F405RG" TargetInterface="SWD" InterfaceSpeed="4000" />
             </JLink>
-            <ScriptFile Name="unspecified" />
+            <ScriptFile Name="D:\DemoCat\Sim\para monitor.jscope\unspecified" />
             <ElfFile Name="D:\DemoCat\Drv\MDK-ARM\Drv\Drv.axf" />
             <DataFile Name="" />
             <RawFile Name="" />
@@ -20,13 +20,22 @@
         </Windows>
         <SelectedSymbols>
             <Symbol>
-                <Options Name="ml_cnt" Address="0x2000000C" Type="float" TypeID="1" Size="4" GraphColorRed="255" GraphColorGreen="215" GraphColorBlue="0" YMinSampled="0" YMaxSampled="3" YAvgSampled="1" Offset="4" ShowInGraph="1" ACCoupling="0" YOffset="200" IsAutoConfig="0" YResolution="1" MaxValue="-2147483648" File="ctrl.c" Scope="0" DrawStyle="0" />
+                <Options Name="pit" Address="0x20000034" Type="float" TypeID="1" Size="4" GraphColorRed="255" GraphColorGreen="215" GraphColorBlue="0" YMinSampled="0" YMaxSampled="0" YAvgSampled="0" Offset="4" ShowInGraph="0" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="1" MaxValue="2" File="ctrl.c" Scope="0" DrawStyle="0" />
             </Symbol>
             <Symbol>
-                <Options Name="mr_cnt" Address="0x20000010" Type="float" TypeID="1" Size="4" GraphColorRed="0" GraphColorGreen="255" GraphColorBlue="0" YMinSampled="0" YMaxSampled="0" YAvgSampled="0" Offset="8" ShowInGraph="1" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="1" MaxValue="2" File="ctrl.c" Scope="0" DrawStyle="0" />
+                <Options Name="yaw" Address="0x20000038" Type="float" TypeID="1" Size="4" GraphColorRed="0" GraphColorGreen="255" GraphColorBlue="0" YMinSampled="0" YMaxSampled="0" YAvgSampled="0" Offset="8" ShowInGraph="1" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="1" MaxValue="2" File="ctrl.c" Scope="0" DrawStyle="0" />
             </Symbol>
             <Symbol>
-                <Options Name="debug" Address="0x20000024" Type="float" TypeID="1" Size="4" GraphColorRed="102" GraphColorGreen="102" GraphColorBlue="178" YMinSampled="0" YMaxSampled="3" YAvgSampled="1" Offset="12" ShowInGraph="1" ACCoupling="0" YOffset="200" IsAutoConfig="0" YResolution="1" MaxValue="100" File="ctrl.c" Scope="0" DrawStyle="0" />
+                <Options Name="ch[0]" Address="0x20000076" Type="ushort" TypeID="7" Size="2" GraphColorRed="102" GraphColorGreen="102" GraphColorBlue="178" YMinSampled="963" YMaxSampled="969" YAvgSampled="965" Offset="12" ShowInGraph="0" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="200" MaxValue="1594" File="uart.c" Scope="0" DrawStyle="0" />
+            </Symbol>
+            <Symbol>
+                <Options Name="ch[1]" Address="0x20000078" Type="ushort" TypeID="7" Size="2" GraphColorRed="160" GraphColorGreen="32" GraphColorBlue="240" YMinSampled="973" YMaxSampled="978" YAvgSampled="975" Offset="14" ShowInGraph="0" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="200" MaxValue="1594" File="uart.c" Scope="0" DrawStyle="0" />
+            </Symbol>
+            <Symbol>
+                <Options Name="ch[2]" Address="0x2000007A" Type="ushort" TypeID="7" Size="2" GraphColorRed="255" GraphColorGreen="0" GraphColorBlue="0" YMinSampled="300" YMaxSampled="307" YAvgSampled="302" Offset="16" ShowInGraph="0" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="50" MaxValue="398" File="uart.c" Scope="0" DrawStyle="0" />
+            </Symbol>
+            <Symbol>
+                <Options Name="ch[3]" Address="0x2000007C" Type="ushort" TypeID="7" Size="2" GraphColorRed="0" GraphColorGreen="191" GraphColorBlue="255" YMinSampled="294" YMaxSampled="1790" YAvgSampled="1008" Offset="18" ShowInGraph="1" ACCoupling="0" YOffset="200" IsAutoConfig="1" YResolution="500" MaxValue="3985" File="uart.c" Scope="0" DrawStyle="0" />
             </Symbol>
         </SelectedSymbols>
     </Project>

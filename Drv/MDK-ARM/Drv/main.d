@@ -34,3 +34,4 @@ drv\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drv\main.o: ..\MDK-ARM\uart.h
 drv\main.o: ..\MDK-ARM\ctrl.h
 drv\main.o: ..\MDK-ARM\TJMst.h
+drv\main.o: ..\MDK-ARM\PS2.h

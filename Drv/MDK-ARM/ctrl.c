@@ -4,6 +4,9 @@
 #include "ctrl.h"
 #include "main.h"
 #include "PID.h"
+#include <stdio.h>
+#include <string.h>
+#include "PS2.h"
 
 #define M_Per_ROUND 188.4e-3
 
@@ -18,7 +21,7 @@ float ml_vel, mr_vel; //dps
 /*car speed modified*/
 float vel,dir;
 /*PID bias*/
-float ml_v_pid,ml_x_pid;
+float ml_v_pid_bias,ml_x_pid_bias;
 PID ml_v_PID, ml_x_PID;
 /*TIM2 mode*/
 uint8_t TIM2_MODE;
@@ -75,6 +78,8 @@ void ctrl_stepper(float dx){
 void ctrl_init(void){
 	//main freq 72M
 	
+	printf("PIDsize %d",sizeof(PID));
+	PID_Init(&ml_v_PID,0,0,0,5,1);
 	//motor freq 25K
 	
 	//deck T=20ms(2000), t=0.5~2.5ms(50-250)
@@ -103,27 +108,39 @@ void ctrl_switch_TIM2_Mode(uint8_t mode){
 	return;
 }
 
+float pit,yaw;
+
 void ctrl_exe(void){
-	/*100Hz systme frequency*/
+	/*100Hz 180000 for TIM1_CNT*/
+	static uint8_t CTRL_FLASH;
+	CTRL_FLASH++;
+	if(CTRL_FLASH==50){
+		CTRL_FLASH=0;
+		LED_B = !LED_B;
+	}
 	
 	/*get remote */
 	dir = ((float)get_sbus(1)/2000.0f * 2.0f -1.0f) * (vr_C/1000.0f);
 	vel = ((float)get_sbus(2)/2000.0f * 2.0f -1.0f) * (vr_D/1000.0f);
-	float pit = (float)get_sbus(3)/3000.0f;
-	float yaw = (float)get_sbus(4)/2000.0f * 2.0f - 1.0f;
+	pit = (float)get_sbus(3)/3000.0f;
+	yaw = (float)get_sbus(4)/2000.0f * 2.0f - 1.0f;
 	float dx = (float)get_sbus(3)/2000.0f * 2.0f - 1.0f;
+	
+	static uint8_t PS2_DBG;
+	PS2_DBG++;
+	if(PS2_DBG==3){
+		PS2_DBG=0;
+		LED_R = !LED_R;
+		PS2_ReadData();
+	}
 	
 	/*get sensors */
 	rt_ml_cnt = get_ml_cnt();
-	rt_mr_cnt = get_mr_cnt();
 	ml_vel = get_ml_vel();
 	
 	/*get PID correction*/
-	ml_x_pid = PID_exe(&ml_x_PID, dir+vel+ml_v_pid, ml_cnt);
-	ml_v_pid = PID_exe(&ml_v_PID, dir+vel, ml_vel);
-	
-	/*report msg*/
-	//set_tmp(mr_vel);
+	ml_x_pid_bias = PID_exe(&ml_x_PID, dir+vel, ml_cnt);
+	ml_v_pid_bias = PID_exe(&ml_v_PID, dir+vel, ml_vel);
 	
 	/*switch*/
 	Drv_EN = sw_D;
@@ -135,6 +152,7 @@ void ctrl_exe(void){
 	ctrl_motor(vel-dir, vel+dir);
 	ctrl_deck(yaw*180,pit*90);
 	ctrl_stepper(dx*100);
+	
 	
 	
 }
@@ -165,7 +183,6 @@ void encoder3_update(void){
 }
 
 void encoder4_update(void){
-	LED_G = !LED_G;
 	if(TIM4->CR1 & 0x10)
 		ml_cnt--;
 	else

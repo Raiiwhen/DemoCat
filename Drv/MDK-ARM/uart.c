@@ -49,8 +49,8 @@ uint32_t console_exe(void){
 	LED_B = !LED_B;
 	
 	if(!memcmp(RX_BUFF,"tmp",2))printf("tmp %.3f\r\n", set_tmp(0));
-	if(!memcmp(RX_BUFF,"BAT",3))printf("BAT %.1f\r\n", BAT_Check(0));
-	if(!memcmp(RX_BUFF,"TEMP",4))printf("TEMP %.1f\r\n", TEMP_Check(0));
+	if(!memcmp(RX_BUFF,"BAT",3))printf("BAT %.1f\r\n", BAT_Check());
+	if(!memcmp(RX_BUFF,"TEMP",4))printf("TEMP %.1f\r\n", TEMP_Check());
 	memset(RX_BUFF,0,DMA_SIZE);
 	
 	HAL_UART_Receive_DMA(&huart3,RX_BUFF,DMA_SIZE);

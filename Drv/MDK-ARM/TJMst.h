@@ -7,9 +7,9 @@
 extern uint8_t RX_BUFF[128];
 extern uint8_t TX_BUFF[128];
 
-float BAT_Check();
-float TEMP_Check();
+float BAT_Check(void);
+float TEMP_Check(void);
 void mst_set(uint8_t mode);
-void mst_execute();
+void mst_execute(void);
 
 #endif
