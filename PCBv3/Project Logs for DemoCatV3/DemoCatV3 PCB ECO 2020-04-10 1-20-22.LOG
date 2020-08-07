@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=Drv_BAT Pin=Deck/Stepper-7
-Removed Pin From Net: NetName=3v3 Pin=Deck/Stepper-8
-Removed Pin From Net: NetName=5v Pin=Deck/Stepper-11
-Removed Pin From Net: NetName=GND Pin=Deck/Stepper-12
-Change Component Footprint: Designator=Deck/Stepper Old Footprint=HDR2X6_CEN New Footprint=HDR_EDGE_2x6

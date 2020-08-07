@@ -1,4 +1,0 @@
-Added Pin To Net: NetName=Drv_BAT Pin=Deck/Stepper-7
-Added Pin To Net: NetName=3v3 Pin=Deck/Stepper-8
-Added Pin To Net: NetName=5v Pin=Deck/Stepper-11
-Added Pin To Net: NetName=GND Pin=Deck/Stepper-12

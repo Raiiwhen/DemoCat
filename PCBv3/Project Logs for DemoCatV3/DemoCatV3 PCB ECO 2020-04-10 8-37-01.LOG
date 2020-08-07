@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=ML1 Pin=MotorDrv-7
-Removed Pin From Net: NetName=MH1 Pin=MotorDrv-8
-Removed Pin From Net: NetName=MH2 Pin=MotorDrv-9
-Removed Pin From Net: NetName=ML2 Pin=MotorDrv-10
-Added Pin To Net: NetName=MH2 Pin=MotorDrv-7
-Added Pin To Net: NetName=ML2 Pin=MotorDrv-8
-Added Pin To Net: NetName=ML1 Pin=MotorDrv-9
-Added Pin To Net: NetName=MH1 Pin=MotorDrv-10

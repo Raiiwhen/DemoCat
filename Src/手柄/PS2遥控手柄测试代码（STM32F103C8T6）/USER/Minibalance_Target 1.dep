@@ -1,86 +1,0 @@
-Dependencies for Project 'Minibalance', Target 'Target 1': (DO NOT MODIFY !)
-F (.\startup_stm32f10x_hd.s)(0x532BB241)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include--list ..\obj\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
-F (.\Minibalance.c)(0x59422D8D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\minibalance.o --omf_browse ..\obj\minibalance.crf --depend ..\obj\minibalance.d)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\SYSTEM\delay\delay.c)(0x5584D9A5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\SYSTEM\sys\sys.c)(0x56653941)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\SYSTEM\usart\usart.c)(0x5942040B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\HARDWARE\LED\LED.C)(0x58C669D0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\HARDWARE\KEY\key.c)(0x58C669D0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
-F (..\HARDWARE\PS2\pstwo.c)(0x59422D8D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\PS2-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-DSTM32F10X_HD -DSTM32F10X_HD -o ..\obj\pstwo.o --omf_browse ..\obj\pstwo.crf --depend ..\obj\pstwo.d)
-I (..\HARDWARE\PS2\pstwo.h)(0x59422D2C)
-I (..\SYSTEM\delay\delay.h)(0x5584D9A5)
-I (..\SYSTEM\sys\sys.h)(0x5941F793)
-I (..\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
-I (..\SYSTEM\sys\core_cm3.h)(0x4D523B58)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
-I (..\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (..\HARDWARE\LED\led.h)(0x58C669D0)
-I (..\HARDWARE\KEY\key.h)(0x58C669D0)
-I (..\SYSTEM\usart\usart.h)(0x5941F7B6)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
