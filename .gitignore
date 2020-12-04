@@ -1,0 +1,43 @@
+#universal
+*.rar
+*.zip
+*.pdf
+*.lnk
+*.jpg
+*.JPG
+*.png
+
+#SolidWork part
+*.step
+*.stl
+
+
+#AD files
+*.SCHLIB
+*.xlsx
+*.PrjPCB
+*.PrjPCBStructure
+*.Annotation
+*.log
+*.LOG
+*.SchDocPreview
+*.AnnotationPreview
+*.OutJob
+
+PCB/History
+PCB/__Previews
+PCB/Project Logs for*
+PCB/Project Outputs for*
+
+#Keil files
+Drv/MDK-ARM/DemoCat
+Drv/MDK-ARM/RTE
+Drv/MDK-ARM/DebugConfig
+*.crf
+*.d
+*.axf
+*.o
+*.uvguix.Administrator.bak
+*.uvguix.Administrator
+*.uvguix
+*.scvd
